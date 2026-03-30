@@ -40,7 +40,7 @@
 ### Key features
 
 - **Auto-Augment Search** — iterative branching strategy that tests augmentations against a baseline; no manual tuning needed
-- **Classification + Detection** — same workflow for both tasks with bbox-aware augmentations that automatically update coordinates
+- **Image classification** — end-to-end workflow from baseline training to stakeholder-ready reports and dashboards
 - **XAI Explainability** — OptiCAM, GradCAM, NMF, and CRAFT heatmaps with per-class severity and trend analysis
 - **ICD & AICD** — novel XAI-driven augmentations that use saliency maps to intelligently mask or focus image regions
 - **8 Novel Augmentations** — texture-rich transforms designed for real-world domains: ChurchNoise, TeaStains, LuxferGlass, ProCAM, DifPresets, Smugs, Drust, and more
@@ -86,7 +86,6 @@ print(f"Best: {result.best_metrics}")
 | Demo | Try it |
 |:-----|:------:|
 | Classification (STL-10) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/classification/bnnr_classification_demo.ipynb) |
-| Object Detection (VOC) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/detection/bnnr_detection_demo.ipynb) |
 | Multi-Label Classification | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/multilabel/bnnr_multilabel_demo.ipynb) |
 | Augmentations Guide | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_augmentations_guide.ipynb) |
 | Bring Your Own Data | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_custom_data.ipynb) |
@@ -99,7 +98,7 @@ print(f"Best: {result.best_metrics}")
 Architect behind BNNR's core engine, XAI pipeline, and model improvement loop. Passionate about making neural networks more robust and explainable.
 
 **Diana Morzhak** — Software Developer & QA Engineer
-Responsible for feature development, quality assurance, and end-to-end testing — ensuring reliability across classification and detection workflows.
+Responsible for feature development, quality assurance, and end-to-end testing — ensuring reliability across classification workflows.
 
 **Dominika Zydorczyk** — Community & Communications Specialist
 Drives community outreach, content strategy, and project awareness for BNNR across social channels and developer communities.
