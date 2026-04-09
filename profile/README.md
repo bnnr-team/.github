@@ -40,7 +40,7 @@
 ### Key features
 
 - **Auto-Augment Search** — iterative branching strategy that tests augmentations against a baseline; no manual tuning needed
-- **Image classification** — end-to-end workflow from baseline training to stakeholder-ready reports and dashboards
+- **Image Classification & Object Detection** — end-to-end workflows for classification, multi-label, and detection (YOLO, Faster R-CNN, RetinaNet, SSD) with bbox-aware augmentations and mAP metrics
 - **XAI Explainability** — OptiCAM, GradCAM, NMF, and CRAFT heatmaps with per-class severity and trend analysis
 - **ICD & AICD** — novel XAI-driven augmentations that use saliency maps to intelligently mask or focus image regions
 - **8 Novel Augmentations** — texture-rich transforms designed for real-world domains: ChurchNoise, TeaStains, LuxferGlass, ProCAM, DifPresets, Smugs, Drust, and more
@@ -88,6 +88,7 @@ print(f"Best: {result.best_metrics}")
 | Classification (STL-10) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/classification/bnnr_classification_demo.ipynb) |
 | Multi-Label Classification | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/multilabel/bnnr_multilabel_demo.ipynb) |
 | Augmentations Guide | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_augmentations_guide.ipynb) |
+| Object Detection | [examples/detection/](https://github.com/bnnr-team/bnnr/tree/main/examples/detection) |
 | Bring Your Own Data | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_custom_data.ipynb) |
 
 ---
@@ -98,7 +99,7 @@ print(f"Best: {result.best_metrics}")
 Architect behind BNNR's core engine, XAI pipeline, and model improvement loop. Passionate about making neural networks more robust and explainable.
 
 **Diana Morzhak** — Software Developer & QA Engineer
-Responsible for feature development, quality assurance, and end-to-end testing — ensuring reliability across classification workflows.
+Responsible for feature development, quality assurance, and end-to-end testing — ensuring reliability across classification and detection workflows.
 
 **Dominika Zydorczyk** — Community & Communications Specialist
 Drives community outreach, content strategy, and project awareness for BNNR across social channels and developer communities.
@@ -116,5 +117,5 @@ Creator of BNNR's visual identity — from the molecular logo and neon branding 
 </p>
 
 <p align="center">
-  <sub>MIT License &copy; 2025 BNNR Team</sub>
+  <sub>MIT License &copy; 2025–2026 BNNR Team</sub>
 </p>
