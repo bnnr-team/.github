@@ -20,6 +20,7 @@
 <p align="center">
   <a href="https://pypi.org/project/bnnr/"><img src="https://img.shields.io/pypi/v/bnnr?color=orange&label=PyPI" alt="PyPI version" /></a>&nbsp;
   <a href="https://pypi.org/project/bnnr/"><img src="https://img.shields.io/pypi/pyversions/bnnr?color=blue" alt="Python versions" /></a>&nbsp;
+  <a href="https://pepy.tech/projects/bnnr"><img src="https://static.pepy.tech/personalized-badge/bnnr?period=total&amp;units=INTERNATIONAL_SYSTEM&amp;left_color=BLACK&amp;right_color=GREEN&amp;left_text=downloads" alt="PyPI downloads" /></a>&nbsp;
   <a href="https://github.com/bnnr-team/bnnr/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bnnr-team/bnnr" alt="License" /></a>&nbsp;
   <a href="https://www.bnnr.dev"><img src="https://img.shields.io/badge/docs-bnnr.dev-blue" alt="Docs" /></a>
 </p>
