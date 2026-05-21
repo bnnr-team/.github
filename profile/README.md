@@ -13,8 +13,13 @@
 </p>
 
 <p align="center">
-  Train, explain, improve, and prove PyTorch vision models&nbsp;&mdash;<br/>
-  with XAI diagnostics, intelligent augmentation, and a real-time dashboard.
+  <strong>BNNR automatically improves your PyTorch vision models using XAI</strong> &mdash; find what your model gets wrong,<br/>
+  fix it with intelligent augmentation, and prove the result with structured reports and a live dashboard.
+</p>
+
+<p align="center">
+  <strong>Already have a trained model?</strong> Run <code>bnnr analyze</code> for metrics, XAI, failure patterns, and recommendations &mdash; no retraining.<br/>
+  <a href="https://github.com/bnnr-team/bnnr/blob/main/docs/analyze.md">Model analysis docs</a>
 </p>
 
 <p align="center">
@@ -25,6 +30,10 @@
   <a href="https://www.bnnr.dev"><img src="https://img.shields.io/badge/docs-bnnr.dev-blue" alt="Docs" /></a>
 </p>
 
+<p align="center">
+  <a href="https://www.bnnr.dev"><strong>Watch the full demo (with audio) on bnnr.dev</strong></a>
+</p>
+
 ---
 
 ### How it works
@@ -33,21 +42,21 @@
 |:----:|:-------------|
 | **Train** | Start with your PyTorch model and data. BNNR trains a baseline, then iteratively evaluates candidate augmentations — keeping only those that measurably improve performance. |
 | **Explain** | OptiCAM, GradCAM, NMF, and CRAFT saliency maps reveal what the model focuses on. Per-class diagnoses expose blind spots and biases invisible to accuracy alone. |
-| **Improve** | Intelligent Coarse Dropout (ICD) masks salient regions, forcing the model to learn from context. Anti-ICD sharpens focus on key features. Both are XAI-driven and automatic. |
+| **Improve** | Intelligent Coarse Dropout (ICD) masks salient regions, forcing the model to learn from context. AICD sharpens focus on key features. Both are XAI-driven and automatic. |
 | **Prove** | A structured report with metrics, XAI heatmaps, branch decisions, and before/after comparisons — shareable, auditable, and ready for stakeholders. |
 
 ---
 
 ### Key features
 
-- **Auto-Augment Search** — iterative branching strategy that tests augmentations against a baseline; no manual tuning needed
-- **Image Classification & Object Detection** — end-to-end workflows for classification, multi-label, and detection (YOLO, Faster R-CNN, RetinaNet, SSD) with bbox-aware augmentations and mAP metrics
+- **Zero-config CLI** — `bnnr train` and `bnnr quickstart` work without a YAML file; sensible defaults built in
+- **Model analysis (`bnnr analyze`)** — full diagnostic report on any trained checkpoint without retraining
+- **Auto-Augment Search** — iterative branching strategy that tests augmentations against a baseline
+- **Image Classification & Object Detection** — classification, multi-label, and detection (COCO-mini / YOLO) with bbox-aware augmentations and mAP metrics (**v0.3.0**)
 - **XAI Explainability** — OptiCAM, GradCAM, NMF, and CRAFT heatmaps with per-class severity and trend analysis
-- **ICD & AICD** — novel XAI-driven augmentations that use saliency maps to intelligently mask or focus image regions
-- **8 Novel Augmentations** — texture-rich transforms designed for real-world domains: ChurchNoise, TeaStains, LuxferGlass, ProCAM, DifPresets, Smugs, Drust, and more
-- **GPU-Native Speed** — key augmentations run natively on CUDA tensors with optional Kornia integration
-- **Real-Time Dashboard** — live monitoring with high-res previews, branch decision trees, per-class metrics, and XAI insights; accessible from your phone via QR code
-- **Auditable Reports** — structured JSON reports exportable as static dashboards for regulatory review or stakeholder presentations
+- **ICD & AICD** — XAI-driven augmentations that use saliency maps to mask or focus image regions
+- **Real-Time Dashboard** — live monitoring with branch trees, metrics, XAI previews; mobile via QR code
+- **Auditable Reports** — structured JSON + static dashboard export for stakeholders
 
 ---
 
@@ -55,20 +64,29 @@
 
 ```bash
 pip install "bnnr[dashboard]"
+
+python3 -m bnnr train --dataset cifar10 --preset light --with-dashboard
 ```
+
+Interactive wizard:
+
+```bash
+python3 -m bnnr quickstart
+```
+
+Analyze an existing checkpoint:
+
+```bash
+python3 -m bnnr analyze --model checkpoints/best.pt --data cifar10 --output ./analysis_out
+```
+
+Python API (advanced):
 
 ```python
 from bnnr import quick_run, BNNRConfig
 
-result = quick_run(
-    model, train_loader, val_loader,
-    config=BNNRConfig(
-        m_epochs=5,
-        max_iterations=3,
-        device="auto",
-    ),
-)
-print(f"Best: {result.best_metrics}")
+result = quick_run(model, train_loader, val_loader, config=BNNRConfig(m_epochs=5, max_iterations=3, device="auto"))
+print(result.best_metrics)
 ```
 
 ---
@@ -77,8 +95,8 @@ print(f"Best: {result.best_metrics}")
 
 | Repository | Description |
 |:-----------|:------------|
-| [`bnnr`](https://github.com/bnnr-team/bnnr) | Core Python library — training, augmentations, XAI, CLI, and dashboard |
-| [`bnnr-website`](https://github.com/bnnr-team/bnnr-website) | Documentation website at [bnnr.dev](https://www.bnnr.dev) |
+| [`bnnr`](https://github.com/bnnr-team/bnnr) | Core library — CLI, training, augmentations, XAI, dashboard |
+| [`bnnr-website`](https://github.com/bnnr-team/bnnr-website) | Site at [bnnr.dev](https://www.bnnr.dev) — docs + demo video with audio |
 
 ---
 
@@ -89,7 +107,7 @@ print(f"Best: {result.best_metrics}")
 | Classification (STL-10) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/classification/bnnr_classification_demo.ipynb) |
 | Multi-Label Classification | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/multilabel/bnnr_multilabel_demo.ipynb) |
 | Augmentations Guide | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_augmentations_guide.ipynb) |
-| Object Detection | [examples/detection/](https://github.com/bnnr-team/bnnr/tree/main/examples/detection) |
+| Object Detection (YOLO) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/detection/bnnr_detection_demo.ipynb) |
 | Bring Your Own Data | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bnnr-team/bnnr/blob/main/examples/bnnr_custom_data.ipynb) |
 
 ---
@@ -97,16 +115,16 @@ print(f"Best: {result.best_metrics}")
 ### Team
 
 **Mateusz Walo** — Founder & Lead Developer
-Architect behind BNNR's core engine, XAI pipeline, and model improvement loop. Passionate about making neural networks more robust and explainable.
+Architect behind BNNR's core engine, XAI pipeline, and model improvement loop.
 
 **Diana Morzhak** — Software Developer & QA Engineer
-Responsible for feature development, quality assurance, and end-to-end testing — ensuring reliability across classification and detection workflows.
+Feature development, quality assurance, and end-to-end testing.
 
 **Dominika Zydorczyk** — Community & Communications Specialist
-Drives community outreach, content strategy, and project awareness for BNNR across social channels and developer communities.
+Community outreach, content strategy, and project awareness.
 
 **Zuzanna Saczuk** — Graphic Designer & Brand Lead
-Creator of BNNR's visual identity — from the molecular logo and neon branding to UI design and all visual assets.
+Visual identity — logo, neon branding, UI, and assets.
 
 ---
 
@@ -114,6 +132,7 @@ Creator of BNNR's visual identity — from the molecular logo and neon branding 
   <a href="https://www.bnnr.dev"><strong>bnnr.dev</strong></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
   <a href="https://pypi.org/project/bnnr/">PyPI</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
   <a href="https://github.com/bnnr-team/bnnr">GitHub</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="https://github.com/bnnr-team/bnnr/discussions">Discussions</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
   <a href="https://github.com/bnnr-team/bnnr/issues">Issues</a>
 </p>
 
