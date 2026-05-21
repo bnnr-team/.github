@@ -52,7 +52,7 @@
 - **Zero-config CLI** — `bnnr train` and `bnnr quickstart` work without a YAML file; sensible defaults built in
 - **Model analysis (`bnnr analyze`)** — full diagnostic report on any trained checkpoint without retraining
 - **Auto-Augment Search** — iterative branching strategy that tests augmentations against a baseline
-- **Image Classification & Object Detection** — classification, multi-label, and detection (COCO-mini / YOLO) with bbox-aware augmentations and mAP metrics (**v0.3.0**)
+- **Image Classification & Object Detection** — classification, multi-label, and detection (COCO-mini / YOLO) with bbox-aware augmentations and mAP metrics (**v0.3.1**)
 - **XAI Explainability** — OptiCAM, GradCAM, NMF, and CRAFT heatmaps with per-class severity and trend analysis
 - **ICD & AICD** — XAI-driven augmentations that use saliency maps to mask or focus image regions
 - **Real-Time Dashboard** — live monitoring with branch trees, metrics, XAI previews; mobile via QR code
